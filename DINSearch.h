@@ -7,6 +7,14 @@
 using namespace std;
 
 
+class fileHeader{
+    string _batchName;
+    string _date;
+    string _userName;
+    string _softwareVersion;
+
+}
+
 class Donor{
     //DIN number and blood antigens
     string _din;
