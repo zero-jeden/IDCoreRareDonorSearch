@@ -23,6 +23,17 @@ ifstream fileToOpen;
 
    string singleLine;
    getline(fileToOpen, singleLine);   //takes out headers
+   cout << singleLine << endl;
+   getline(fileToOpen, singleLine);
+   cout << singleLine << endl;
+   getline(fileToOpen, singleLine);
+   cout << singleLine << endl;
+    getline(fileToOpen, singleLine);
+   cout << singleLine << endl;
+   getline(fileToOpen, singleLine);
+   cout << singleLine << endl;
+   getline(fileToOpen, singleLine);
+   cout << singleLine << endl;
 
    
 
@@ -68,7 +79,7 @@ ifstream fileToOpen;
     string  Lub;
 
     
-
+    /*
    istringstream stream(singleLine);
    getline(stream, idNumber, ',');
    idNumberName = idNumber;
@@ -81,6 +92,7 @@ ifstream fileToOpen;
    pieces = stoi(token);
    getline(stream, token, ',');
    price = stod(token);
+   */
 
 
   
