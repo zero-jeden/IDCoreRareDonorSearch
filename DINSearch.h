@@ -3,11 +3,10 @@
 #include <sstream>
 #include <fstream>
 #include <string>
-#include "extrafile.h"
 using namespace std;
 
 
-class fileHeader{
+struct fileHeader{
     string _batchName;
     string _date;
     string _userName;
@@ -15,7 +14,7 @@ class fileHeader{
 
 }
 
-class Donor{
+class Sample{
     //DIN number and blood antigens
     string _din;
     string _C;
@@ -55,6 +54,49 @@ class Donor{
     string _Ytb;
     string _Lua;
     string _Lub;
+
+public:
+
+Sample(
+    string  din ,
+    string  C ,
+    string  E ,
+    string  c ,
+    string  e ,
+    string  CW ,
+    string  V ,
+    string  hrs ,
+    string  VS ,
+    string  hrB ,
+    string  K ,
+    string  k ,
+    string  Kpa ,
+    string  Kpb ,
+    string  Jsa ,
+    string  Jsb ,
+    string  Jka ,
+    string  Jkb ,
+    string  Fya ,
+    string  Fyb ,
+    string  M ,
+    string  N ,
+    string  S ,
+    string  s ,
+    string  U ,
+    string  Mia ,
+    string  Dia ,
+    string  Dib ,
+    string  Doa ,
+    string  Dob ,
+    string  Hy ,
+    string  Joa ,
+    string  Coa ,
+    string  Cob ,
+    string  Yta ,
+    string  Ytb ,
+    string  Lua ,
+    string  Lub ,
+    );
     
     
 }
