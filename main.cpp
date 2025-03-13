@@ -93,122 +93,122 @@ void loadFiles(string file) {
 
 		istringstream stream(singleLine);
 		getline(stream, din, ';');
-		cout << din << endl;
+		//cout << din << endl;
 
 
 		getline(stream, C, ';');
-		cout << C << endl;
+		//cout << C << endl;
 
 		getline(stream, C, ';');
-		cout << C << endl;
+		//cout << C << endl;
 
 		getline(stream, E, ';');
-		cout << E << endl;
+		//cout << E << endl;
 
 		getline(stream, c, ';');
-		cout << c<< endl;
+		//cout << c<< endl;
 
 		getline(stream, e, ';');
-		cout << e << endl;
+		//cout << e << endl;
 
 		getline(stream, CW, ';');
-		cout << CW << endl;
+		// << CW << endl;
 
 		getline(stream, V, ';');
-		cout << V << endl;
+		//cout << V << endl;
 
 		getline(stream, hrs, ';');
-		cout << hrs << endl;
+		//cout << hrs << endl;
 
 		getline(stream, VS, ';');
-		cout << VS << endl;
+		//cout << VS << endl;
 
 		getline(stream, hrB, ';');
-		cout << hrB << endl;
+		//cout << hrB << endl;
 
 		getline(stream, K, ';');
-		cout << K << endl;
+		//cout << K << endl;
 
 		getline(stream, k, ';');
-		cout << k<< endl;
+		//cout << k<< endl;
 
 		getline(stream, Kpa, ';');
-		cout << Kpa << endl;
+		//cout << Kpa << endl;
 
 		getline(stream, Kpb, ';');
-		cout << Kpb << endl;
+		//cout << Kpb << endl;
 
 		getline(stream, Jsa, ';');
-		cout << Jsa << endl;
+		//cout << Jsa << endl;
 
 		getline(stream, Jsb, ';');
-		cout << Jsb << endl;
+		//cout << Jsb << endl;
 
 		getline(stream, Jka, ';');
-		cout << Jka << endl;
+		//cout << Jka << endl;
 
 		getline(stream, Jkb, ';');
-		cout << Jkb << endl;
+		//cout << Jkb << endl;
 
 		getline(stream, Fya, ';');
-		cout << Fya << endl;
+		//cout << Fya << endl;
 
 		getline(stream, Fyb, ';');
-		cout << Fyb<< endl;
+		//cout << Fyb<< endl;
 
 		getline(stream, M, ';');
-		cout << M << endl;
+		//cout << M << endl;
 
 		getline(stream, N, ';');
-		cout << N<< endl;
+		//cout << N<< endl;
 
 		getline(stream, S, ';');
-		cout << S << endl;
+		//cout << S << endl;
 
 		getline(stream, s, ';');
-		cout << s << endl;
+		//cout << s << endl;
 
 		getline(stream, U, ';');
-		cout << U << endl;
+		//cout << U << endl;
 
 		getline(stream, Mia, ';');
-		cout << Mia << endl;
+		//cout << Mia << endl;
 
 		getline(stream, Dia, ';');
-		cout << Dia << endl;
+		//cout << Dia << endl;
 
 		getline(stream, Dib, ';');
-		cout << Dib << endl;
+		//cout << Dib << endl;
 
 		getline(stream, Doa, ';');
-		cout << Doa << endl;
+		//cout << Doa << endl;
 
 		getline(stream, Dob, ';');
-		cout <<Dob<< endl;
+		//cout <<Dob<< endl;
 
 		getline(stream,Hy, ';');
-		cout <<Hy << endl;
+		//cout <<Hy << endl;
 
 		getline(stream, Joa, ';');
-		cout << Joa<< endl;
+		//cout << Joa<< endl;
 
 		getline(stream, Coa, ';');
-		cout << Coa << endl;
+		//cout << Coa << endl;
 
 		getline(stream, Cob, ';');
-		cout << Cob << endl;
+		//cout << Cob << endl;
 
 		getline(stream, Yta, ';');
-		cout << Yta << endl;
+		//cout << Yta << endl;
 
 		getline(stream, Ytb, ';');
-		cout << Ytb << endl;
+		//cout << Ytb << endl;
 
 		getline(stream, Lua, ';');
-		cout << Lua << endl;
+		//cout << Lua << endl;
 
 		getline(stream, Lub, '\n' );
-		cout << Lub << endl;
+		//cout << Lub << endl;
 
 		Sample sample(
 		    din,
@@ -252,7 +252,7 @@ void loadFiles(string file) {
 		);
 
 		samples.push_back(sample);
-		cout << "COOOOOOUUUNNNNNTTTTTT" << count << endl;
+		cout << "Count " << count << endl;
 		count++;
 
 	}
@@ -272,6 +272,7 @@ int main()
 
 	if (option == 1) {
 		loadFiles("./022825_Phenotype.txt");
+		samples[0].printSample();
 		return 0;
 	}
 	else if (option == 2) {
