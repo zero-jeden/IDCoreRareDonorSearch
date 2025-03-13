@@ -100,13 +100,14 @@ Sample(
     
     void printSample();
     void getUvars();
-    void getJsbNeg();
+    string getJsbNeg();
     void getKpbNeg();
     void getDoaposJoaneg();
     void getkNeg();
     void getJkanegbneg();
     void getYtaneg();
     void getLubneg();
+    string printDIN();
     
     
     
