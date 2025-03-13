@@ -90,12 +90,13 @@ Sample::Sample(
         
     }
     
-    void Sample::printSample(){
-        cout << _din << endl;
+  string Sample::printDIN(){
+        return _din ;
     }
     
-    void Sample::getUvars(){
-        vector<Sample> uVar;
+    string Sample::getJsbNeg(){
+        return _Jsb;
+        
         
         
     }
