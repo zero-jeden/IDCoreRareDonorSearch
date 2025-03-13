@@ -4,11 +4,12 @@
 #include <fstream>
 #include <string>
 #include "ExtraDINFile.h"
+#include<vector>
 using namespace std;
 
 
 
-
+vector<Sample> samples;
 
 
 void loadFiles(string file){
@@ -34,6 +35,15 @@ ifstream fileToOpen;
    cout << singleLine << endl;
    getline(fileToOpen, singleLine);
    cout << singleLine << endl;
+    getline(fileToOpen, singleLine);
+   cout << singleLine << endl;
+   getline(fileToOpen, singleLine);
+   cout << singleLine << endl;
+   
+  getline(fileToOpen, singleLine);
+   cout << singleLine << endl;
+    
+
 
    
 
@@ -79,25 +89,179 @@ ifstream fileToOpen;
     string  Lub;
 
     
-    /*
+    
    istringstream stream(singleLine);
-   getline(stream, idNumber, ',');
-   idNumberName = idNumber;
-   getline(stream, theme, ',');
-   getline(stream, name, ',');
+   getline(stream, din, ';');
+   cout << din << endl;
+   
+  
+   getline(stream, C, ';');
+   cout << C << endl;
+   
+   getline(stream, C, ';');
+   cout << C << endl;
 
-   getline(stream, token, ',');
-   numMinis = stoi(token);
-   getline(stream, token, ',');
-   pieces = stoi(token);
-   getline(stream, token, ',');
-   price = stod(token);
-   */
+    getline(stream, E, ';');
+   cout << E << endl;
+
+    getline(stream, c, ';');
+   cout << c<< endl;
+
+    getline(stream, e, ';');
+   cout << e << endl;
+
+    getline(stream, CW, ';');
+   cout << CW << endl;
+
+    getline(stream, V, ';');
+   cout << V << endl;
+
+    getline(stream, hrs, ';');
+   cout << hrs << endl;
+
+    getline(stream, VS, ';');
+   cout << VS << endl;
+   
+   getline(stream, hrB, ';');
+   cout << hrB << endl;
+
+    getline(stream, K, ';');
+   cout << K << endl;
+
+    getline(stream, k, ';');
+   cout << k<< endl;
+
+    getline(stream, Kpa, ';');
+   cout << Kpa << endl;
+
+    getline(stream, Kpb, ';');
+   cout << Kpb << endl;
+
+    getline(stream, Jsa, ';');
+   cout << Jsa << endl;
+
+    getline(stream, Jsb, ';');
+   cout << Jsb << endl;
+
+    getline(stream, Jka, ';');
+   cout << Jka << endl;
+
+    getline(stream, Jkb, ';');
+   cout << Jkb << endl;
+
+    getline(stream, Fya, ';');
+   cout << Fya << endl;
+   
+   getline(stream, Fyb, ';');
+   cout << Fyb<< endl;
+
+    getline(stream, M, ';');
+   cout << M << endl;
+
+    getline(stream, N, ';');
+   cout << N<< endl;
+
+    getline(stream, S, ';');
+   cout << S << endl;
+
+    getline(stream, s, ';');
+   cout << s << endl;
+
+    getline(stream, U, ';');
+   cout << U << endl;
+
+    getline(stream, Mia, ';');
+   cout << Mia << endl;
+
+    getline(stream, Dia, ';');
+   cout << Dia << endl;
+   
+       getline(stream, Dib, ';');
+   cout << Dib << endl;
+
+    getline(stream, Doa, ';');
+   cout << Doa << endl;
+   
+   getline(stream, Dob, ';');
+   cout <<Dob<< endl;
+
+    getline(stream,Hy, ';');
+   cout <<Hy << endl;
+
+    getline(stream, Joa, ';');
+   cout << Joa<< endl;
+
+    getline(stream, Coa, ';');
+   cout << Coa << endl;
+
+    getline(stream, Cob, ';');
+   cout << Cob << endl;
+
+    getline(stream, Yta, ';');
+   cout << Yta << endl;
+
+    getline(stream, Ytb, ';');
+   cout << Ytb << endl;
+
+    getline(stream, Lua, ';');
+   cout << Lua << endl;
+   
+   getline(stream, Lub, ';');
+   cout << Lub << endl;
+   
+   Sample sample(
+       din ,
+       C ,
+       E ,
+       c ,
+       e ,
+       CW ,
+       V ,
+       hrs ,
+       VS ,
+       hrB ,
+       K ,
+       k ,
+       Kpa ,
+       Kpb ,
+       Jsa ,
+       Jsb ,
+       Jka ,
+       Jkb ,
+       Fya ,
+       Fyb ,
+       M ,
+       N ,
+       S ,
+       s ,
+       U ,
+       Mia ,
+       Dia ,
+       Dib ,
+       Doa ,
+       Dob ,
+       Hy ,
+       Joa ,
+       Coa ,
+       Cob ,
+       Yta ,
+       Ytb ,
+       Lua ,
+       Lub
+);
+
+    samples.push_back(sample);
+
+
+
+
+   
+   
 
 
   
 
-	//}
+	//}// whiule loop
 }
 
 
@@ -114,6 +278,7 @@ int main()
 
 	if (option == 1){
 	loadFiles("./022825_Phenotype.txt");
+	return 0;
 	}
 	else if (option == 2){
 	loadFiles("./lego2.csv");
