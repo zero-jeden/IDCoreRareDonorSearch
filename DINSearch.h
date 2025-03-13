@@ -12,7 +12,7 @@ struct fileHeader{
     string _userName;
     string _softwareVersion;
 
-}
+};
 
 class Sample{
     //DIN number and blood antigens
@@ -49,7 +49,7 @@ class Sample{
     string _Hy;
     string _Joa;
     string _Coa;
-    string _Cob
+    string _Cob;
     string _Yta;
     string _Ytb;
     string _Lua;
@@ -95,8 +95,19 @@ Sample(
     string  Yta ,
     string  Ytb ,
     string  Lua ,
-    string  Lub ,
+    string  Lub
     );
     
+    void printSample();
+    void getUvars();
+    void getJsbNeg();
+    void getKpbNeg();
+    void getDoaposJoaneg();
+    void getkNeg();
+    void getJkanegbneg();
+    void getYtaneg();
+    void getLubneg();
     
-}
+    
+    
+};
