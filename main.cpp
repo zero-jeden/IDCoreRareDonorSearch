@@ -10,6 +10,7 @@ using namespace std;
 
 int count = 1;
 vector<Sample> samples;
+vector<Sample> JsbNeg;
 
 
 void loadFiles(string file) {
@@ -31,14 +32,16 @@ void loadFiles(string file) {
 	cout << singleLine << endl;
 	getline(fileToOpen, singleLine);
 	cout << singleLine << endl;
+	
 	getline(fileToOpen, singleLine);
-	cout << singleLine << endl;
+	//cout << singleLine << endl;
 	getline(fileToOpen, singleLine);
-	cout << singleLine << endl;
+	// << singleLine << endl;
 	getline(fileToOpen, singleLine);
-	cout << singleLine << endl;
+	// << singleLine << endl;
 	getline(fileToOpen, singleLine);
-	cout << singleLine << endl;
+	//cout << singleLine << endl
+	
 
 	//getline(fileToOpen, singleLine);
 	//cout << singleLine << endl;
@@ -95,9 +98,6 @@ void loadFiles(string file) {
 		getline(stream, din, ';');
 		//cout << din << endl;
 
-
-		getline(stream, C, ';');
-		//cout << C << endl;
 
 		getline(stream, C, ';');
 		//cout << C << endl;
@@ -252,8 +252,8 @@ void loadFiles(string file) {
 		);
 
 		samples.push_back(sample);
-		cout << "Count " << count << endl;
-		count++;
+		//cout << "Count " << count << endl;
+		//count++;
 
 	}
 }
@@ -261,83 +261,28 @@ void loadFiles(string file) {
 
 int main()
 {
-	cout << std::fixed << setprecision(2);
+
 	cout << "Which file(s) to open?\n";
 	cout << "1. Run One" << endl;
-	cout << "2. lego2.csv" << endl;
-	cout << "3. lego3.csv" << endl;
-	cout << "4. All 3 files" << endl;
 	int option;
 	cin >> option;
 
 	if (option == 1) {
 		loadFiles("./022825_Phenotype.txt");
-		samples[0].printSample();
+		//[0].printSample;
+		for(int i =0; i < 93; i++){
+		    if(samples[i].getJsbNeg() == "0"){
+		        JsbNeg.push_back(samples[i]);
+		        
+		    }
+		}
+		for(int j =0; j < JsbNeg.size(); j++){
+		    cout << JsbNeg[j].printDIN() << endl;
+		    
+		}
 		return 0;
 	}
-	else if (option == 2) {
-		loadFiles("./lego2.csv");
-	}
-	else if (option == 3) {
-		loadFiles("./lego3.csv");
-	}
-	else if (option == 4) {
-		loadFiles("./lego1.csv");
-		loadFiles("./lego2.csv");
-		loadFiles("./lego3.csv");
-	}
 
-
-	/*======= Load data from file(s) =======*/
-
-
-	cout << "1. Most Expensive set" << endl;
-	cout << "2. Largest piece count" << endl;
-	cout << "3. Search for set name containing..." << endl;
-	cout << "4. Search themes..." << endl;
-	cout << "5. Part count information" << endl;
-	cout << "6. Price information" << endl;
-	cout << "7. Minifigure information" << endl;
-	cout << "8. If you bought one of everything..." << endl;
-	cout << "0. Exit" << endl;
-
-	int choice;
-	cin >> choice;
-	cin.get();  // Clear newline character for any later input
-
-	/*======= Print out how many sets were loaded =======*/
-
-
-	/*======= Based on the choice, execute the appropriate task and show the results =======*/
-	if (choice == 1) {
-
-	}
-	if (choice == 2) {
-
-	}
-	if (choice == 3) {
-		string target;
-		//cout << "Enter a name: " << endl;
-
-	}
-	if (choice == 4) {
-
-	}
-	if (choice == 5) {
-
-	}
-	if (choice == 6) {
-
-	}
-	if (choice == 7) {
-
-	}
-	if (choice == 8) {
-
-	}
-
-	if (choice == 0) {
-		return 0;
-	}
-	return 0;
 }
+
+
