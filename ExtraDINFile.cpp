@@ -3,6 +3,7 @@
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <vector>
 using namespace std;
 #include "ExtraDINFile.h"
 
@@ -88,3 +89,14 @@ Sample::Sample(
         
         
     }
+    
+    void Sample::printSample(){
+        cout << _din << endl;
+    }
+    
+    void Sample::getUvars(){
+        vector<Sample> uVar;
+        
+        
+    }
+    
