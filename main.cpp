@@ -320,7 +320,7 @@ void getKpbNeg(vector<Sample>& target){
         if(target[i].getKpbNeg() == "0"){
             flag = false;
             plateLocation(i+3);
-            cout <<endl << "    " <<target[i].printDIN() << endl;
+            cout << "    " <<target[i].printDIN() << endl;
         }
         
     }
@@ -395,13 +395,67 @@ void getLubNeg(vector<Sample>& target){
         if(target[i].getLub() == "0" ){
             flag = false;
             plateLocation(i+3);
-            cout <<endl << "    " <<target[i].printDIN() << endl;
+            cout << "    " <<target[i].printDIN() << endl;
         }
         
     }
     if (flag == true){cout << " NOT FOUND" << endl;}
     
 }
+
+void getCnegEnegKnegDuffyabneg(vector<Sample>& target){
+    bool flag = true;
+    cout << "C- E- K- Fy(a-b-)   *****Needs to be RhD negative*****" << endl;
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && target[i].getFya() == "0" && target[i].getFyb() == "0"){
+            flag = false;
+            cout << count << ".  ";
+            plateLocation(i+3);
+            cout <<" " <<target[i].printDIN() << endl;
+            count++;
+        }
+        
+    }
+    if (flag == true){cout << " NOT FOUND" << endl;}
+    
+}
+
+void getCnegenegKnegDuffyabneg(vector<Sample>& target){
+    bool flag = true;
+    cout << "C- e- K- Fy(a-b-)" << endl;
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getC() == "0" && target[i].gete() == "0" && target[i].getK() == "0" && target[i].getFya() == "0" && target[i].getFyb() == "0"){
+            flag = false;
+            cout << count << ".  ";
+            plateLocation(i+3);
+            cout <<target[i].printDIN() << endl;
+            count++;
+        }
+        
+    }
+    if (flag == true){cout << " NOT FOUND" << endl;}
+}
+
+void getCnegEnegKnegDuffyaorbnegJkaorbnegandSors(vector<Sample>& target){
+    bool flag = true;
+    cout << " " << endl;
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && (target[i].getFya() == "0" or target[i].getFyb() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0") && (target[i].getS() == "0" or target[i].get_s()== "0")){
+            flag = false;
+            cout << count << ".  ";
+            plateLocation(i+3);
+            cout <<" " <<target[i].printDIN() << endl;
+            count++;
+        }
+        
+    }
+    if (flag == true){cout << " NOT FOUND" << endl;}
+
+    
+}
+
+
+
 
 int main()
 {
@@ -428,6 +482,10 @@ int main()
 		getYtaNeg(samples);
 		cout<<endl;
 		getLubNeg(samples);
+		cout<<endl;
+		getCnegEnegKnegDuffyabneg(samples);
+		cout<<endl;
+		getCnegenegKnegDuffyabneg(samples);
 		return 0;
 	}
 
