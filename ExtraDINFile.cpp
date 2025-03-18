@@ -101,3 +101,22 @@ Sample::Sample(
         
     }
     
+    string Sample::getUvars(){ return _U;}
+    
+    string Sample::getKpbNeg(){return _Kpb;}
+    
+    string Sample::getDoa(){return _Doa;}
+    
+    string Sample::getDob(){return _Dob;}
+    
+    string Sample::getJoa(){return _Joa;}
+    
+    string Sample::getk(){return _k;}
+    
+    string Sample::getJka(){return _Jka;}
+    
+    string Sample::getJkb(){return _Jkb;}
+    
+    string Sample::getYta(){return _Yta;}
+    
+    string Sample::getLub(){return _Lub;}
