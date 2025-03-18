@@ -1,0 +1,27 @@
+#include <map>
+#include <iostream>
+using namespace std;
+void plateLocation(int index){
+    map<int, char> myMap;
+    
+    
+    char row;
+    int col;
+    
+    myMap[0] = 'A';
+    myMap[1] = 'B';
+    myMap[2] = 'C';
+    myMap[3] = 'D';
+    myMap[4] = 'E';
+    myMap[5] = 'F';
+    myMap[6] = 'G';
+    myMap[7] = 'H'; 
+    
+    row = myMap[(index % 8) ];
+    col = (index / 8) ;
+    //cout << col;
+    //cout << endl;
+    cout <<"Plate Location: " << row << col + 1 << endl;
+    
+    
+}
