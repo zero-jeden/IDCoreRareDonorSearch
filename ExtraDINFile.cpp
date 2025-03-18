@@ -120,3 +120,21 @@ Sample::Sample(
     string Sample::getYta(){return _Yta;}
     
     string Sample::getLub(){return _Lub;}
+    
+    string Sample::getC(){return _C;}
+    
+    string Sample::get_c(){return _c;}
+    
+    string Sample::getE(){return _E;}
+    
+    string Sample::getS(){return _S;}
+    
+    string Sample::get_s(){return _s;}
+    
+    string Sample::getK(){return _K;}
+    
+    string Sample::getFya(){return _Fya;}
+    
+    string Sample::getFyb(){return _Fyb;}
+    
+    string Sample::gete(){return _e;}
