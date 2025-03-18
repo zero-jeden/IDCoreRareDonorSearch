@@ -99,14 +99,24 @@ Sample(
     );
     
     void printSample();
-    void getUvars();
+    string getUvars();
     string getJsbNeg();
-    void getKpbNeg();
-    void getDoaposJoaneg();
-    void getkNeg();
-    void getJkanegbneg();
-    void getYtaneg();
-    void getLubneg();
+    string getKpbNeg();
+   
+    string getDoa();
+    string getDob();
+    string getJoa();
+    string getk();
+    string getJka();
+    string getJkb();
+    
+    string getYta();
+    string getLub();
+    
+    
+    string getC();
+    string 
+   
     string printDIN();
     
     
