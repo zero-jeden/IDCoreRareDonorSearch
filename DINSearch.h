@@ -112,10 +112,18 @@ Sample(
     
     string getYta();
     string getLub();
+    string getK();
     
     
     string getC();
-    string 
+    string get_c();
+    string getE();
+    string gete();
+    string getS();
+    string get_s();
+    string getFyb();
+    string getFya();
+    
    
     string printDIN();
     
