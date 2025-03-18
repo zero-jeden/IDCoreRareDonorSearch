@@ -5,6 +5,7 @@
 #include <string>
 #include "ExtraDINFile.h"
 #include<vector>
+#include<map>
 using namespace std;
 
 
@@ -12,6 +13,30 @@ int count = 1;
 vector<Sample> samples;
 vector<Sample> JsbNeg;
 
+void plateLocation(int index){
+    map<int, char> myMap;
+    
+    
+    char row;
+    int col;
+    
+    myMap[0] = 'A';
+    myMap[1] = 'B';
+    myMap[2] = 'C';
+    myMap[3] = 'D';
+    myMap[4] = 'E';
+    myMap[5] = 'F';
+    myMap[6] = 'G';
+    myMap[7] = 'H'; 
+    
+    row = myMap[(index % 8) ];
+    col = (index / 8) ;
+    //cout << col;
+    //cout << endl;
+    cout << row << col + 1;
+    
+    
+}
 
 void loadFiles(string file) {
 	ifstream fileToOpen;
@@ -258,6 +283,125 @@ void loadFiles(string file) {
 	}
 }
 
+void findUvariants(vector<Sample>& target){
+    bool flag = true;
+    cout << "U-  and U variants" << endl;
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getUvars() != "+"){
+            flag = false;
+            plateLocation(i+3);
+            cout << "    " <<target[i].printDIN() << endl;
+        }
+        
+    }
+    if (flag == true){cout << "No U-  or U variants found" << endl;}
+    
+}
+
+void getJsbNeg(vector<Sample>& target){
+    bool flag = true;
+    cout << "Jsb-" << endl;
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getJsbNeg() == "0"){
+            flag = false;
+            plateLocation(i+3);
+            cout << "    " <<target[i].printDIN() << endl;
+        }
+        
+    }
+    if (flag == true){cout << "No Jsb- found" << endl;}
+    
+}
+
+void getKpbNeg(vector<Sample>& target){
+    bool flag = true;
+    cout << "Kpb-" ;
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getKpbNeg() == "0"){
+            flag = false;
+            plateLocation(i+3);
+            cout <<endl << "    " <<target[i].printDIN() << endl;
+        }
+        
+    }
+    if (flag == true){cout << " NOT FOUND" << endl;}
+    
+}
+
+void getDaposbnegJoaneg(vector<Sample>& target){
+    bool flag = true;
+    cout << "Do(a+b-) and Joa-";
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getDoa() == "+" && target[i].getDob() == "0" && target[i].getJoa() == "0"){
+            flag = false;
+            plateLocation(i+3);
+            cout <<endl << "    " <<target[i].printDIN() << endl;
+        }
+        
+    }
+    if (flag == true){cout << " NOT FOUND" << endl;}
+    
+}
+
+void getkNeg(vector<Sample>& target){
+    bool flag = true;
+    cout << "k-";
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getk() == "0"){
+            flag = false;
+            plateLocation(i+3);
+            cout <<endl << "    " <<target[i].printDIN() << endl;
+        }
+        
+    }
+    if (flag == true){cout << " NOT FOUND" << endl;}
+    
+}
+
+void getJkaNegJkbNeg(vector<Sample>& target){
+    bool flag = true;
+    cout << "Jka-  and Jkb- ";
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getJka() == "0" && target[i].getJkb() == "0" ){
+            flag = false;
+            plateLocation(i+3);
+            cout <<endl << "    " <<target[i].printDIN() << endl;
+        }
+        
+    }
+    if (flag == true){cout << " NOT FOUND" << endl;}
+    
+}
+
+void getYtaNeg(vector<Sample>& target){
+    bool flag = true;
+    cout << "Yta-";
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getYta() == "0" ){
+            flag = false;
+            plateLocation(i+3);
+            cout <<endl << "    " <<target[i].printDIN() << endl;
+        }
+        
+    }
+    if (flag == true){cout << " NOT FOUND" << endl;}
+    
+}
+
+void getLubNeg(vector<Sample>& target){
+    bool flag = true;
+    cout << "Lub-";
+    for (int i = 0; i < target.size(); i ++){
+        if(target[i].getLub() == "0" ){
+            flag = false;
+            plateLocation(i+3);
+            cout <<endl << "    " <<target[i].printDIN() << endl;
+        }
+        
+    }
+    if (flag == true){cout << " NOT FOUND" << endl;}
+    
+}
 
 int main()
 {
@@ -269,20 +413,22 @@ int main()
 
 	if (option == 1) {
 		loadFiles("./022825_Phenotype.txt");
-		//[0].printSample;
-		for(int i =0; i < 93; i++){
-		    if(samples[i].getJsbNeg() == "0"){
-		        JsbNeg.push_back(samples[i]);
-		        
-		    }
-		}
-		for(int j =0; j < JsbNeg.size(); j++){
-		    cout << JsbNeg[j].printDIN() << endl;
-		    
-		}
+		findUvariants(samples);
+		cout<<endl;
+		getJsbNeg(samples);
+		cout<<endl;
+		getKpbNeg(samples);
+		cout<<endl;
+		getDaposbnegJoaneg(samples);
+		cout<<endl;
+		getkNeg(samples);
+		cout<<endl;
+		getJkaNegJkbNeg(samples);
+		cout<<endl;
+		getYtaNeg(samples);
+		cout<<endl;
+		getLubNeg(samples);
 		return 0;
 	}
 
 }
-
-
