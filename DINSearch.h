@@ -54,6 +54,7 @@ class Sample{
     string _Ytb;
     string _Lua;
     string _Lub;
+    bool _printFlag = false;
 
 public:
 
@@ -124,8 +125,10 @@ Sample(
     string getFyb();
     string getFya();
     
-   
+    
     string printDIN();
+    bool getPrintStatus();
+    void setPrintFlag();
     
     
     
