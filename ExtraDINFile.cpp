@@ -138,3 +138,7 @@ Sample::Sample(
     string Sample::getFyb(){return _Fyb;}
     
     string Sample::gete(){return _e;}
+    
+    void Sample::setPrintFlag(){_printFlag = true;}
+    
+    bool Sample::getPrintStatus(){return _printFlag;}
