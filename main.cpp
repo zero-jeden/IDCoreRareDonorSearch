@@ -452,12 +452,14 @@ void getCnegEnegKnegDuffyaorbnegJkaorbnegandSors(vector<Sample>& target){
     bool flag = true;
     cout << "C -E- K- (Fya- or Fyb-) and (Jka- or Jkb-) and (S- or s-) " << endl;
     for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && (target[i].getFya() == "0" or target[i].getFyb() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0") && (target[i].getS() == "0" or target[i].get_s()== "0")){
+        if( target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && (target[i].getFya() == "0" or target[i].getFyb() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0") && (target[i].getS() == "0" or target[i].get_s()== "0")){
             flag = false;
             target[i].setPrintFlag();
             cout << count << ".  ";
             plateLocation(i+3);
-            cout <<" " <<target[i].printDIN() << endl;
+            cout <<" " <<target[i].printDIN();
+            if(target[i].getPrintStatus()){cout <<"    repeat" << endl;}
+            else{cout<< endl;}
             count++;
         }
         
@@ -537,7 +539,7 @@ int main()
 	cin >> option;
 
 	if (option == 1) {
-		loadFiles("./031825A_Phenotype.txt");
+		loadFiles("./032525A_Phenotype.txt");
 		findUvariants(samples);
 		cout<<endl;
 		getJsbNeg(samples);
