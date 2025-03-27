@@ -13,29 +13,29 @@ using namespace std;
 int count = 1;
 vector<Sample> samples;
 
-void plateLocation(int index){
-    map<int, char> myMap;
-    
-    
-    char row;
-    int col;
-    
-    myMap[0] = 'A';
-    myMap[1] = 'B';
-    myMap[2] = 'C';
-    myMap[3] = 'D';
-    myMap[4] = 'E';
-    myMap[5] = 'F';
-    myMap[6] = 'G';
-    myMap[7] = 'H'; 
-    
-    row = myMap[(index % 8) ];
-    col = (index / 8) ;
-    //cout << col;
-    //cout << endl;
-    cout << row << col + 1;
-    
-    
+void plateLocation(int index) {
+	map<int, char> myMap;
+
+
+	char row;
+	int col;
+
+	myMap[0] = 'A';
+	myMap[1] = 'B';
+	myMap[2] = 'C';
+	myMap[3] = 'D';
+	myMap[4] = 'E';
+	myMap[5] = 'F';
+	myMap[6] = 'G';
+	myMap[7] = 'H';
+
+	row = myMap[(index % 8) ];
+	col = (index / 8) ;
+	//cout << col;
+	//cout << endl;
+	cout << row << col + 1;
+
+
 }
 
 void loadFiles(string file) {
@@ -57,7 +57,7 @@ void loadFiles(string file) {
 	cout << singleLine << endl;
 	getline(fileToOpen, singleLine);
 	cout << singleLine << endl;
-	
+
 	getline(fileToOpen, singleLine);
 	//cout << singleLine << endl;
 	getline(fileToOpen, singleLine);
@@ -66,7 +66,7 @@ void loadFiles(string file) {
 	// << singleLine << endl;
 	getline(fileToOpen, singleLine);
 	//cout << singleLine << endl
-	
+
 
 	//getline(fileToOpen, singleLine);
 	//cout << singleLine << endl;
@@ -76,8 +76,8 @@ void loadFiles(string file) {
 
 
 	for (int i = 0; i < 93; i++) {
-        getline(fileToOpen, singleLine);
-        //string singleLine;
+		getline(fileToOpen, singleLine);
+		//string singleLine;
 		string  din;
 		string  C;
 		string  E;
@@ -283,247 +283,279 @@ void loadFiles(string file) {
 	}
 }
 
-void findUvariants(vector<Sample>& target){
-    bool flag = true;
-    cout << "U-  and U variants";
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getUvars() != "+"){
-            flag = false;
-            target[i].setPrintFlag();
-            cout << endl;
-            plateLocation(i+3);
-            cout <<"    " <<target[i].printDIN() << endl;
-        }
-        
-    }
-    if (flag == true){cout << "No U-  or U variants found" << endl;}
-    
+void findUvariants(vector<Sample>& target) {
+	bool flag = true;
+	cout << "U-  and U variants";
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getUvars() != "+") {
+			flag = false;
+			target[i].setPrintFlag();
+			cout << endl;
+			plateLocation(i+3);
+			cout <<"    " <<target[i].printDIN() << endl;
+		}
+
+	}
+	if (flag == true) {
+		cout << "No U-  or U variants found" << endl;
+	}
+
 }
 
-void getJsbNeg(vector<Sample>& target){
-    bool flag = true;
-    cout << "Jsb-";
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getJsbNeg() == "0"){
-            flag = false;
-            target[i].setPrintFlag();
-            cout<<endl;
-            plateLocation(i+3);
-            cout << "    " <<target[i].printDIN() << endl;
-        }
-        
-    }
-    if (flag == true){cout << "No Jsb- found" << endl;}
-    
+void getJsbNeg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "Jsb-";
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getJsbNeg() == "0") {
+			flag = false;
+			target[i].setPrintFlag();
+			cout<<endl;
+			plateLocation(i+3);
+			cout << "    " <<target[i].printDIN() << endl;
+		}
+
+	}
+	if (flag == true) {
+		cout << "No Jsb- found" << endl;
+	}
+
 }
 
-void getKpbNeg(vector<Sample>& target){
-    bool flag = true;
-    cout << "Kpb-" ;
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getKpbNeg() == "0"){
-            flag = false;
-            target[i].setPrintFlag();
-            plateLocation(i+3);
-            cout << "    " <<target[i].printDIN() << endl;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
-    
+void getKpbNeg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "Kpb-" ;
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getKpbNeg() == "0") {
+			flag = false;
+			target[i].setPrintFlag();
+			plateLocation(i+3);
+			cout << "    " <<target[i].printDIN() << endl;
+		}
+
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
 }
 
-void getDaposbnegJoaneg(vector<Sample>& target){
-    bool flag = true;
-    cout << "Do(a+b-) and Joa-";
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getDoa() == "+" && target[i].getDob() == "0" && target[i].getJoa() == "0"){
-            flag = false;
-            target[i].setPrintFlag();
-            plateLocation(i+3);
-            cout <<endl << "    " <<target[i].printDIN() << endl;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
-    
+void getDaposbnegJoaneg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "Do(a+b-) and Joa-";
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getDoa() == "+" && target[i].getDob() == "0" && target[i].getJoa() == "0") {
+			flag = false;
+			target[i].setPrintFlag();
+			plateLocation(i+3);
+			cout <<endl << "    " <<target[i].printDIN() << endl;
+		}
+
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
 }
 
-void getkNeg(vector<Sample>& target){
-    bool flag = true;
-    cout << "k-";
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getk() == "0"){
-            flag = false;
-            target[i].setPrintFlag();
-            plateLocation(i+3);
-            cout <<endl << "    " <<target[i].printDIN() << endl;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
-    
+void getkNeg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "k-";
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getk() == "0") {
+			flag = false;
+			target[i].setPrintFlag();
+			plateLocation(i+3);
+			cout <<endl << "    " <<target[i].printDIN() << endl;
+		}
+
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
 }
 
-void getJkaNegJkbNeg(vector<Sample>& target){
-    bool flag = true;
-    cout << "Jka-  and Jkb- ";
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getJka() == "0" && target[i].getJkb() == "0" ){
-            flag = false;
-            target[i].setPrintFlag();
-            plateLocation(i+3);
-            cout <<endl << "    " <<target[i].printDIN() << endl;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
-    
+void getJkaNegJkbNeg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "Jka-  and Jkb- ";
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getJka() == "0" && target[i].getJkb() == "0" ) {
+			flag = false;
+			target[i].setPrintFlag();
+			plateLocation(i+3);
+			cout <<endl << "    " <<target[i].printDIN() << endl;
+		}
+
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
 }
 
-void getYtaNeg(vector<Sample>& target){
-    bool flag = true;
-    cout << "Yta-";
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getYta() == "0" ){
-            flag = false;
-            target[i].setPrintFlag();
-            plateLocation(i+3);
-            cout <<endl << "    " <<target[i].printDIN() << endl;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
-    
+void getYtaNeg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "Yta-";
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getYta() == "0" ) {
+			flag = false;
+			target[i].setPrintFlag();
+			plateLocation(i+3);
+			cout <<endl << "    " <<target[i].printDIN() << endl;
+		}
+
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
 }
 
-void getLubNeg(vector<Sample>& target){
-    bool flag = true;
-    cout << "Lub-";
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getLub() == "0" ){
-            flag = false;
-            target[i].setPrintFlag();
-            plateLocation(i+3);
-            cout << "    " <<target[i].printDIN() << endl;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
-    
+void getLubNeg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "Lub-";
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getLub() == "0" ) {
+			flag = false;
+			target[i].setPrintFlag();
+			plateLocation(i+3);
+			cout << "    " <<target[i].printDIN() << endl;
+		}
+
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
 }
 
-void getCnegEnegKnegDuffyabneg(vector<Sample>& target){
-    bool flag = true;
-    cout << "C- E- K- Fy(a-b-)   *****Needs to be RhD negative*****" << endl;
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && target[i].getFya() == "0" && target[i].getFyb() == "0"){
-            flag = false;
-            target[i].setPrintFlag();
-            cout << count << ".  ";
-            plateLocation(i+3);
-            cout <<" " <<target[i].printDIN() << endl;
-            count++;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
-    
+void getCnegEnegKnegDuffyabneg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "C- E- K- Fy(a-b-)   *****Needs to be RhD negative*****" << endl;
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && target[i].getFya() == "0" && target[i].getFyb() == "0") {
+			flag = false;
+			target[i].setPrintFlag();
+			cout << count << ".  ";
+			plateLocation(i+3);
+			cout <<" " <<target[i].printDIN() << endl;
+			count++;
+		}
+
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
 }
 
-void getCnegenegKnegDuffyabneg(vector<Sample>& target){
-    bool flag = true;
-    cout << "C- e- K- Fy(a-b-)" << endl;
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].gete() == "0" && target[i].getK() == "0" && target[i].getFya() == "0" && target[i].getFyb() == "0"){
-            flag = false;
-            target[i].setPrintFlag();
-            cout << count << ".  ";
-            plateLocation(i+3);
-            cout <<target[i].printDIN() << endl;
-            count++;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
+void getCnegenegKnegDuffyabneg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "C- e- K- Fy(a-b-)" << endl;
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].gete() == "0" && target[i].getK() == "0" && target[i].getFya() == "0" && target[i].getFyb() == "0") {
+			flag = false;
+			target[i].setPrintFlag();
+			cout << count << ".  ";
+			plateLocation(i+3);
+			cout <<target[i].printDIN() << endl;
+			count++;
+		}
+
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
 }
 
-void getCnegEnegKnegDuffyaorbnegJkaorbnegandSors(vector<Sample>& target){
-    bool flag = true;
-    cout << "C -E- K- (Fya- or Fyb-) and (Jka- or Jkb-) and (S- or s-) " << endl;
-    for (int i = 0; i < target.size(); i ++){
-        if( target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && (target[i].getFya() == "0" or target[i].getFyb() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0") && (target[i].getS() == "0" or target[i].get_s()== "0")){
-            flag = false;
-            target[i].setPrintFlag();
-            cout << count << ".  ";
-            plateLocation(i+3);
-            cout <<" " <<target[i].printDIN();
-            if(target[i].getPrintStatus()){cout <<"    repeat" << endl;}
-            else{cout<< endl;}
-            count++;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
+void getCnegEnegKnegDuffyaorbnegJkaorbnegandSors(vector<Sample>& target) {
+	bool flag = true;
+	cout << "C -E- K- (Fya- or Fyb-) and (Jka- or Jkb-) and (S- or s-) " << endl;
+	for (int i = 0; i < target.size(); i ++) {
+		if( target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && (target[i].getFya() == "0" or target[i].getFyb() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0") && (target[i].getS() == "0" or target[i].get_s()== "0")) {
+			flag = false;
+			target[i].setPrintFlag();
+			cout << count << ".  ";
+			plateLocation(i+3);
+			cout <<" " <<target[i].printDIN();
+			if(target[i].getPrintStatus()) {
+				cout <<"    repeat" << endl;
+			}
+			else {
+				cout<< endl;
+			}
+			count++;
+		}
 
-    
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
+
 }
 
-void getCnegcposEposeneg(vector<Sample>& target){
-    bool flag = true;
-    cout << "C- c+ E+ e-    *****Needs to be RhD negative*****" << endl;
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].get_c() == "+" && target[i].getE() == "+" && target[i].gete() == "0" ){
-            flag = false;
-            target[i].setPrintFlag();
-            cout << count << ".  ";
-            plateLocation(i+3);
-            cout <<" " <<target[i].printDIN() << endl;
-            count++;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
+void getCnegcposEposeneg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "C- c+ E+ e-    *****Needs to be RhD negative*****" << endl;
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].get_c() == "+" && target[i].getE() == "+" && target[i].gete() == "0" ) {
+			flag = false;
+			target[i].setPrintFlag();
+			cout << count << ".  ";
+			plateLocation(i+3);
+			cout <<" " <<target[i].printDIN() << endl;
+			count++;
+		}
 
-    
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
+
 }
 
-void getCposcnegEnegepos(vector<Sample>& target){
-    bool flag = true;
-    cout << "C+ c- E- e+    *****Needs to be RhD negative*****" << endl;
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getC() == "+" && target[i].get_c() == "0" && target[i].getE() == "0" && target[i].gete() == "+" ){
-            flag = false;
-            target[i].setPrintFlag();
-            cout << count << ".  ";
-            plateLocation(i+3);
-            cout <<" " <<target[i].printDIN() << endl;
-            count++;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
+void getCposcnegEnegepos(vector<Sample>& target) {
+	bool flag = true;
+	cout << "C+ c- E- e+    *****Needs to be RhD negative*****" << endl;
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getC() == "+" && target[i].get_c() == "0" && target[i].getE() == "0" && target[i].gete() == "+" ) {
+			flag = false;
+			target[i].setPrintFlag();
+			cout << count << ".  ";
+			plateLocation(i+3);
+			cout <<" " <<target[i].printDIN() << endl;
+			count++;
+		}
 
-    
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
+
 }
 
-void getCposcnegEposeneg(vector<Sample>& target){
-    bool flag = true;
-    cout << "C+ c- E+ e-" << endl;
-    for (int i = 0; i < target.size(); i ++){
-        if(!target[i].getPrintStatus() && target[i].getC() == "+" && target[i].get_c() == "0" && target[i].getE() == "+" && target[i].gete() == "0" ){
-            flag = false;
-            target[i].setPrintFlag();
-            cout << count << ".  ";
-            plateLocation(i+3);
-            cout <<" " <<target[i].printDIN() << endl;
-            count++;
-        }
-        
-    }
-    if (flag == true){cout << " NOT FOUND" << endl;}
+void getCposcnegEposeneg(vector<Sample>& target) {
+	bool flag = true;
+	cout << "C+ c- E+ e-" << endl;
+	for (int i = 0; i < target.size(); i ++) {
+		if(!target[i].getPrintStatus() && target[i].getC() == "+" && target[i].get_c() == "0" && target[i].getE() == "+" && target[i].gete() == "0" ) {
+			flag = false;
+			target[i].setPrintFlag();
+			cout << count << ".  ";
+			plateLocation(i+3);
+			cout <<" " <<target[i].printDIN() << endl;
+			count++;
+		}
 
-    
+	}
+	if (flag == true) {
+		cout << " NOT FOUND" << endl;
+	}
+
+
 }
 
 
@@ -533,42 +565,39 @@ void getCposcnegEposeneg(vector<Sample>& target){
 int main()
 {
 
-	cout << "Which file(s) to open?\n";
-	cout << "1. Run One" << endl;
-	int option;
-	cin >> option;
+	cout << "Rare Donor Search\n";
 
-	if (option == 1) {
-		loadFiles("./032525A_Phenotype.txt");
-		findUvariants(samples);
-		cout<<endl;
-		getJsbNeg(samples);
-		cout<<endl;
-		getKpbNeg(samples);
-		cout<<endl;
-		getDaposbnegJoaneg(samples);
-		cout<<endl;
-		getkNeg(samples);
-		cout<<endl;
-		getJkaNegJkbNeg(samples);
-		cout<<endl;
-		getYtaNeg(samples);
-		cout<<endl;
-		getLubNeg(samples);
-		cout<<endl;
-		getCnegEnegKnegDuffyabneg(samples);
-		cout<<endl;
-		getCnegenegKnegDuffyabneg(samples);
-		cout<<endl;
-		getCnegEnegKnegDuffyaorbnegJkaorbnegandSors(samples);
-		cout<<endl;
-		getCnegcposEposeneg(samples);
-		cout<<endl;
-		getCposcnegEnegepos(samples);
-		cout<<endl;
-		getCposcnegEposeneg(samples);
-		
-		return 0;
-	}
 
+
+	loadFiles("./032625A_Phenotype.txt");
+	findUvariants(samples);
+	cout<<endl;
+	getJsbNeg(samples);
+	cout<<endl;
+	getKpbNeg(samples);
+	cout<<endl;
+	getDaposbnegJoaneg(samples);
+	cout<<endl;
+	getkNeg(samples);
+	cout<<endl;
+	getJkaNegJkbNeg(samples);
+	cout<<endl;
+	getYtaNeg(samples);
+	cout<<endl;
+	getLubNeg(samples);
+	cout<<endl;
+	getCnegEnegKnegDuffyabneg(samples);
+	cout<<endl;
+	getCnegenegKnegDuffyabneg(samples);
+	cout<<endl;
+	getCnegEnegKnegDuffyaorbnegJkaorbnegandSors(samples);
+	cout<<endl;
+	getCnegcposEposeneg(samples);
+	cout<<endl;
+	getCposcnegEnegepos(samples);
+	cout<<endl;
+	getCposcnegEposeneg(samples);
+
+
+	return 0;
 }
