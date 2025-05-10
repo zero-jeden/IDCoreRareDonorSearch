@@ -474,7 +474,7 @@ void getCnegEnegKnegDuffyaorbnegJkaorbnegandSors(vector<Sample>& target) {
 	for (int i = 0; i < target.size(); i ++) {
 		if( target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && (target[i].getFya() == "0" or target[i].getFyb() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0") && (target[i].getS() == "0" or target[i].get_s()== "0")) {
 			flag = false;
-			target[i].setPrintFlag();
+			//target[i].setPrintFlag(); not needed..if allowed will call all printouts as repeats
 			cout << count << ".  ";
 			plateLocation(i+3);
 			cout <<" " <<target[i].printDIN();
@@ -569,7 +569,7 @@ int main()
 
 
 
-	loadFiles("./032625A_Phenotype.txt");
+	loadFiles("./050925A.txt");
 	findUvariants(samples);
 	cout<<endl;
 	getJsbNeg(samples);
