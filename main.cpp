@@ -297,7 +297,7 @@ void findUvariants(vector<Sample>& target) {
 
 	}
 	if (flag == true) {
-		cout << "No U-  or U variants found" << endl;
+		cout << endl << "NOT FOUND" << endl;
 	}
 
 }
@@ -316,7 +316,7 @@ void getJsbNeg(vector<Sample>& target) {
 
 	}
 	if (flag == true) {
-		cout << "No Jsb- found" << endl;
+		cout << endl << "NOT FOUND" << endl;
 	}
 
 }
@@ -334,7 +334,7 @@ void getKpbNeg(vector<Sample>& target) {
 
 	}
 	if (flag == true) {
-		cout << " NOT FOUND" << endl;
+		cout << "NOT FOUND" << endl;
 	}
 
 }
