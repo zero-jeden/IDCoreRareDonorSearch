@@ -49,13 +49,13 @@ bool loadFiles(string file) {
 
 	string singleLine;
 	getline(fileToOpen, singleLine);   //takes out headers
-	cout << singleLine << endl;
+	//cout << singleLine << endl;
 	getline(fileToOpen, singleLine);   //this block prints date, user, and analysis software version.
-	cout << singleLine << endl;
+	//cout << singleLine << endl;
 	getline(fileToOpen, singleLine);
-	cout << singleLine << endl;
+	//cout << singleLine << endl;
 	getline(fileToOpen, singleLine);
-	cout << singleLine << endl;
+	//cout << singleLine << endl;
 
 	getline(fileToOpen, singleLine);
 	//cout << singleLine << endl;
@@ -367,12 +367,12 @@ void getkNeg(vector<Sample>& target) {
 			flag = false;
 			target[i].setPrintFlag();
 			plateLocation(i+3);
-			cout <<endl << "    " <<target[i].printDIN() << endl;
+			cout << endl << "    " <<target[i].printDIN() << endl;
 		}
 
 	}
 	if (flag == true) {
-		cout << " NOT FOUND" << endl;
+		cout << endl << " NOT FOUND" << endl;
 	}
 
 }
@@ -390,7 +390,7 @@ void getJkaNegJkbNeg(vector<Sample>& target) {
 
 	}
 	if (flag == true) {
-		cout << " NOT FOUND" << endl;
+		cout << endl << "NOT FOUND" << endl;
 	}
 
 }
@@ -408,7 +408,7 @@ void getYtaNeg(vector<Sample>& target) {
 
 	}
 	if (flag == true) {
-		cout << " NOT FOUND" << endl;
+		cout << endl << " NOT FOUND" << endl;
 	}
 
 }
@@ -567,7 +567,7 @@ void getCposcnegEposeneg(vector<Sample>& target) {
 int main()
 {
 
-	cout << "Rare Donor Search\n";
+	cout << "Rare Donor Search\n" << endl;
 
 
 
