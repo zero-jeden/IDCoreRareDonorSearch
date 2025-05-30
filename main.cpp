@@ -38,20 +38,19 @@ void plateLocation(int index) {
 
 }
 
-void loadFiles(string file) {
+bool loadFiles(string file) {
 	ifstream fileToOpen;
 	fileToOpen.open(file);
-	if (fileToOpen.is_open()) {
-		cout << "Opened file "<< endl ;
-	}
-	else {
+	if (!fileToOpen.is_open()) {
+
 		cout << "Error opening file " << endl;
+		return false;
 	}
 
 	string singleLine;
 	getline(fileToOpen, singleLine);   //takes out headers
 	cout << singleLine << endl;
-	getline(fileToOpen, singleLine);
+	getline(fileToOpen, singleLine);   //this block prints date, user, and analysis software version.
 	cout << singleLine << endl;
 	getline(fileToOpen, singleLine);
 	cout << singleLine << endl;
@@ -281,6 +280,7 @@ void loadFiles(string file) {
 		//count++;
 
 	}
+	return true;
 }
 
 void findUvariants(vector<Sample>& target) {
@@ -292,7 +292,7 @@ void findUvariants(vector<Sample>& target) {
 			target[i].setPrintFlag();
 			cout << endl;
 			plateLocation(i+3);
-			cout <<"    " <<target[i].printDIN() << endl;
+			cout <<"  " <<target[i].printDIN() << endl;
 		}
 
 	}
@@ -311,7 +311,7 @@ void getJsbNeg(vector<Sample>& target) {
 			target[i].setPrintFlag();
 			cout<<endl;
 			plateLocation(i+3);
-			cout << "    " <<target[i].printDIN() << endl;
+			cout <<"  " <<target[i].printDIN() << endl;
 		}
 
 	}
@@ -328,13 +328,14 @@ void getKpbNeg(vector<Sample>& target) {
 		if(!target[i].getPrintStatus() && target[i].getKpbNeg() == "0") {
 			flag = false;
 			target[i].setPrintFlag();
+			cout << endl;
 			plateLocation(i+3);
 			cout << "    " <<target[i].printDIN() << endl;
 		}
 
 	}
 	if (flag == true) {
-		cout << "NOT FOUND" << endl;
+		cout << endl << "NOT FOUND" << endl;
 	}
 
 }
@@ -346,8 +347,9 @@ void getDaposbnegJoaneg(vector<Sample>& target) {
 		if(!target[i].getPrintStatus() && target[i].getDoa() == "+" && target[i].getDob() == "0" && target[i].getJoa() == "0") {
 			flag = false;
 			target[i].setPrintFlag();
+			cout << endl;
 			plateLocation(i+3);
-			cout <<endl << "    " <<target[i].printDIN() << endl;
+			cout << "    " <<target[i].printDIN() << endl;
 		}
 
 	}
@@ -569,7 +571,8 @@ int main()
 
 
 
-	loadFiles("./050925A.txt");
+	bool startFlag = loadFiles("./051625A.txt");
+	if(startFlag == false){return 1;}
 	findUvariants(samples);
 	cout<<endl;
 	getJsbNeg(samples);
