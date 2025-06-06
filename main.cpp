@@ -433,7 +433,7 @@ void getLubNeg(vector<Sample>& target) {
 
 void getCnegEnegKnegDuffyabneg(vector<Sample>& target) {
 	bool flag = true;
-	cout << "C- E- K- Fy(a-b-)   *****Needs to be RhD negative*****" << endl;
+	cout << "C- E- K- Fy(a-b-)   *****Needs to be RhD negative*****   Samples that are D+ and qualify for C -E- K- (Fya- or Fyb-) and (Jka- or Jkb-) and (S- or s-) will be indicated " << endl;
 	for (int i = 0; i < target.size(); i ++) {
 		if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && target[i].getFya() == "0" && target[i].getFyb() == "0") {
 			flag = false;
@@ -442,7 +442,7 @@ void getCnegEnegKnegDuffyabneg(vector<Sample>& target) {
 			plateLocation(i+3);
 			cout <<" " <<target[i].printDIN();
 			if((target[i].getS() == "0" or target[i].get_s() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0")){
-			    cout << " If D+ qualifies for C -E- K- (Fya- or Fyb-) and (Jka- or Jkb-) and (S- or s-)" << endl;
+			    cout << " Qualifies" << endl;
 			}
 			else{cout << endl;}
 			
