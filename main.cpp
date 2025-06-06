@@ -285,12 +285,12 @@ bool loadFiles(string file) {
 
 void findUvariants(vector<Sample>& target) {
 	bool flag = true;
-	cout << "U-  and U variants";
+	cout << "U- and U variants" << endl;
 	for (int i = 0; i < target.size(); i ++) {
 		if(!target[i].getPrintStatus() && target[i].getUvars() != "+") {
 			flag = false;
 			target[i].setPrintFlag();
-			cout << endl;
+			//cout << endl;
 			plateLocation(i+3);
 			cout <<"  " <<target[i].printDIN() << endl;
 		}
@@ -342,7 +342,7 @@ void getKpbNeg(vector<Sample>& target) {
 
 void getDaposbnegJoaneg(vector<Sample>& target) {
 	bool flag = true;
-	cout << "Do(a+b-) and Joa-";
+	cout << "Do(a+b-) and Joa-" << endl;
 	for (int i = 0; i < target.size(); i ++) {
 		if(!target[i].getPrintStatus() && target[i].getDoa() == "+" && target[i].getDob() == "0" && target[i].getJoa() == "0") {
 			flag = false;
@@ -354,7 +354,7 @@ void getDaposbnegJoaneg(vector<Sample>& target) {
 
 	}
 	if (flag == true) {
-		cout << " NOT FOUND" << endl;
+		cout << "NOT FOUND" << endl;
 	}
 
 }
@@ -372,7 +372,7 @@ void getkNeg(vector<Sample>& target) {
 
 	}
 	if (flag == true) {
-		cout << endl << " NOT FOUND" << endl;
+		cout << endl << "NOT FOUND" << endl;
 	}
 
 }
@@ -408,7 +408,7 @@ void getYtaNeg(vector<Sample>& target) {
 
 	}
 	if (flag == true) {
-		cout << endl << " NOT FOUND" << endl;
+		cout << endl << "NOT FOUND" << endl;
 	}
 
 }
@@ -426,7 +426,7 @@ void getLubNeg(vector<Sample>& target) {
 
 	}
 	if (flag == true) {
-		cout << " NOT FOUND" << endl;
+		cout << endl << "NOT FOUND" << endl;
 	}
 
 }
@@ -438,11 +438,11 @@ void getCnegEnegKnegDuffyabneg(vector<Sample>& target) {
 		if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && target[i].getFya() == "0" && target[i].getFyb() == "0") {
 			flag = false;
 			target[i].setPrintFlag();
-			cout << count << ".  ";
+			cout << count << "." << setw(5);
 			plateLocation(i+3);
 			cout <<" " <<target[i].printDIN();
 			if((target[i].getS() == "0" or target[i].get_s() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0")){
-			    cout << " Qualifies" << endl;
+			    cout << setw(10) << " Qualifies" << endl;
 			}
 			else{cout << endl;}
 			
