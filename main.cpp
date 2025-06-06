@@ -440,7 +440,12 @@ void getCnegEnegKnegDuffyabneg(vector<Sample>& target) {
 			target[i].setPrintFlag();
 			cout << count << ".  ";
 			plateLocation(i+3);
-			cout <<" " <<target[i].printDIN() << endl;
+			cout <<" " <<target[i].printDIN();
+			if((target[i].getS() == "0" or target[i].get_s() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0")){
+			    cout << " If D+ qualifies for C -E- K- (Fya- or Fyb-) and (Jka- or Jkb-) and (S- or s-)" << endl;
+			}
+			else{cout << endl;}
+			
 			count++;
 		}
 
@@ -460,7 +465,7 @@ void getCnegenegKnegDuffyabneg(vector<Sample>& target) {
 			target[i].setPrintFlag();
 			cout << count << ".  ";
 			plateLocation(i+3);
-			cout <<target[i].printDIN() << endl;
+			cout << " " << target[i].printDIN() << endl;
 			count++;
 		}
 
@@ -474,7 +479,7 @@ void getCnegEnegKnegDuffyaorbnegJkaorbnegandSors(vector<Sample>& target) {
 	bool flag = true;
 	cout << "C -E- K- (Fya- or Fyb-) and (Jka- or Jkb-) and (S- or s-) " << endl;
 	for (int i = 0; i < target.size(); i ++) {
-		if( target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && (target[i].getFya() == "0" or target[i].getFyb() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0") && (target[i].getS() == "0" or target[i].get_s()== "0")) {
+		if(!target[i].getPrintStatus() && target[i].getC() == "0" && target[i].getE() == "0" && target[i].getK() == "0" && (target[i].getFya() == "0" or target[i].getFyb() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0") && (target[i].getS() == "0" or target[i].get_s()== "0")) {
 			flag = false;
 			//target[i].setPrintFlag(); not needed..if allowed will call all printouts as repeats
 			cout << count << ".  ";
@@ -571,7 +576,7 @@ int main()
 
 
 
-	bool startFlag = loadFiles("./051625A.txt");
+	bool startFlag = loadFiles("./060525A.txt");
 	if(startFlag == false){return 1;}
 	findUvariants(samples);
 	cout<<endl;
