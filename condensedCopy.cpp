@@ -768,7 +768,7 @@ int main()
 
 
 
-	bool startFlag = loadFiles("./051625A.txt");
+	bool startFlag = loadFiles("./run.txt");
 	if(startFlag == false){return 1;}
 	findUvariants(samples);
 	cout<<endl;
