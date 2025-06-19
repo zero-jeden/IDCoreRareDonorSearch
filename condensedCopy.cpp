@@ -1,3 +1,29 @@
+/*
+This is a utility that will sort phenotypes designated by ARDP as rare.
+To use please do the following:
+1. press ctrl-A to select all the text in this file
+2. press ctrl-C to copy all the text in this file
+3. open onlinegdb.com/online_c++_compiler#
+4. delete all text in the main.cpp tab
+5. press ctrl-V to paste the previously selected text into main.cpp
+6. press ctrl-M to open a new tab; name it run.txt
+7. open BIDs and go the completed run to be analyzed
+8. select all the samples on the plate map, including controls and failed wells
+9. press the csv button below the plate map and save to desired location. this will save three csv files
+10. double click the phenotype file, it will open in excel
+11. press ctrl-A to select all the cells in the file
+12. press ctrl-C to copy every cell
+13. go back to onlinegdb.com/online_c++_compiler#
+14. in the run tab, press ctrl-V to paste the excel data
+15. press the green Run button, this opens a window on the bottom half with sorted DINs
+16. press the copy to clipboard icon that is on the input window
+17. paste into text editor, such as notepad
+18. print and begin searching for additional testing as required by ARDP
+
+
+
+*/
+
 #include <iomanip>
 #include <iostream>
 #include <sstream>
