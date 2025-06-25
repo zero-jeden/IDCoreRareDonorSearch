@@ -798,18 +798,18 @@ int main()
 	if(startFlag == false){return 1;}
 	findUvariants(samples);
 	cout<<endl;
-	getJsbNeg(samples);
-	cout<<endl;
+	//getJsbNeg(samples);
+	//cout<<endl;
 	getKpbNeg(samples);
 	cout<<endl;
-	getDaposbnegJoaneg(samples);
-	cout<<endl;
+	//getDaposbnegJoaneg(samples);
+	//cout<<endl;
 	getkNeg(samples);
 	cout<<endl;
 	getJkaNegJkbNeg(samples);
 	cout<<endl;
-	getYtaNeg(samples);
-	cout<<endl;
+	//getYtaNeg(samples);
+	//cout<<endl;
 	getLubNeg(samples);
 	cout<<endl;
 	getCnegEnegKnegDuffyabneg(samples);
