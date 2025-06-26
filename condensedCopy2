@@ -666,9 +666,9 @@ void getCnegEnegKnegDuffyabneg(vector<Sample>& target) {
 			plateLocation(i+3);
 			cout <<" " <<target[i].printDIN();
 			if((target[i].getS() == "0" or target[i].get_s() == "0") && (target[i].getJka() == "0" or target[i].getJkb() == "0")){
-			    cout << setw(10) << " Qualifies" << endl;
+			    cout << setw(10) << " All RhD" << endl;
 			}
-			else{cout << endl;}
+			else{cout << setw(10) << " RHD Neg Only" << endl;}
 			
 			count++;
 		}
